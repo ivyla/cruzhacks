@@ -1,5 +1,16 @@
-.sider {
+.sider-logo {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+}
+
+.ant-layout-sider {
+  background: $blue2;
+  .ant-menu {
+    background: $blue1;
+    .ant-menu-item {
+      background: $blue1;
+      border-color: $blue1;
+    }
+  }
 }

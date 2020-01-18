@@ -14,7 +14,11 @@ const App = () => {
     <Layout className="layout">
       <Sider isCollapse={isCollapse}></Sider>
       <Layout>
-        <Header className="header" setCollapse={setCollapse}></Header>
+        <Header
+          className="header"
+          isCollapse={isCollapse}
+          setCollapse={setCollapse}
+        ></Header>
         <Content className="content"></Content>
         <Footer className="footer"></Footer>
       </Layout>

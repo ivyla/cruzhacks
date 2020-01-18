@@ -10,6 +10,9 @@ const Sider = props => {
       collapsedWidth={0}
       collapsed={props.isCollapse}
     >
+      <div className="sider-logo">
+        <img src="https://img.icons8.com/cotton/128/000000/earth-care--v1.png"></img>
+      </div>
       <Menu>
         <Menu.Item key="1">
           <Icon type="user" />
