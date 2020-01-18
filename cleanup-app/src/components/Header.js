@@ -1,25 +1,17 @@
 import React from 'react'
-import { Layout, Menu } from 'antd'
+import { Button, Layout, Menu } from 'antd'
 
-const Header = () => {
+const Header = props => {
   return (
     <Layout.Header className="header">
+      <Button
+        onClick={() => props.setCollapse(!props.isCollapse)}
+        className="sider-toggle"
+        icon={props.isCollapse ? 'menu-unfold' : 'menu-fold'}
+      ></Button>
       <div className="logo">
         <h1>CLEAN THIS PLACE</h1>
         <img src="https://img.icons8.com/cotton/64/000000/earth-care--v1.png"></img>
-      </div>
-      <div className="navbar">
-        <Menu mode="horizontal">
-          <Menu.Item>
-            <h1>ABOUT</h1>
-          </Menu.Item>
-          <Menu.Item>
-            <h1>OPEN CLEANUPS</h1>
-          </Menu.Item>
-          <Menu.Item>
-            <h1>CONTACT</h1>
-          </Menu.Item>
-        </Menu>
       </div>
     </Layout.Header>
   )
