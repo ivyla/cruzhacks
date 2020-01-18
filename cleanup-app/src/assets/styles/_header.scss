@@ -1,0 +1,33 @@
+.header {
+  background: $yellow2;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      height: 50px;
+      margin: 0 20px 0 20px;
+    }
+  }
+  .navbar {
+    display: flex;
+    align-items: center;
+
+    .ant-menu {
+      border-bottom: 0px;
+      background: rgba(0, 0, 0, 0);
+      .ant-menu-item-active,
+      .ant-menu-item-selected {
+        border-color: $yellow1;
+      }
+    }
+
+    li {
+      margin-left: 25px;
+    }
+  }
+}
