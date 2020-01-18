@@ -16,11 +16,11 @@ const Sider = props => {
       <Menu>
         <Menu.Item key="1">
           <Icon type="user" />
-          <span>nav 1</span>
+          <span>ABOUT</span>
         </Menu.Item>
         <Menu.Item key="2">
           <Icon type="user" />
-          <span>nav 1</span>
+          <span>CLEAN UP</span>
         </Menu.Item>
       </Menu>
     </Layout.Sider>

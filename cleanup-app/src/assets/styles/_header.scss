@@ -11,12 +11,14 @@
     background-color: $yellow2;
     color: $dark;
     word-wrap: break-word;
-    border-color: $dark;
+    border-color: $yellow2;
     padding-right: 32px;
     height: 32px;
     width: 32px;
     svg {
       margin-right: -32px;
+      height: 32px;
+      width: 32px;
     }
   }
   .logo {
