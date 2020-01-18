@@ -15,17 +15,17 @@ const Sider = props => {
         <img src="https://img.icons8.com/cotton/128/000000/earth-care--v1.png"></img>
       </div>
       <Menu>
-        <Menu.Item key="0">
+        <Menu.Item key="0" onClick={() => props.setCollapse(!props.isCollapse)}>
           <Link to="/">
             <h1>HOME</h1>
           </Link>
         </Menu.Item>
-        <Menu.Item key="1">
+        <Menu.Item key="1" onClick={() => props.setCollapse(!props.isCollapse)}>
           <Link to="/about">
             <h1>ABOUT</h1>
           </Link>
         </Menu.Item>
-        <Menu.Item key="2">
+        <Menu.Item key="2" onClick={() => props.setCollapse(!props.isCollapse)}>
           <Link to="/map">
             <h1>MAP</h1>
           </Link>

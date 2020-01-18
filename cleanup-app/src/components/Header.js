@@ -10,7 +10,7 @@ const Header = props => {
         icon={props.isCollapse ? 'menu-unfold' : 'menu-fold'}
       ></Button>
       <div className="logo">
-        <h1>CLEAN THIS PLACE</h1>
+        <h1>CLEAN THIS SPACE</h1>
         <img src="https://img.icons8.com/cotton/64/000000/earth-care--v1.png"></img>
       </div>
     </Layout.Header>

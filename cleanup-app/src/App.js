@@ -27,7 +27,7 @@ const App = () => {
   return (
     <Router>
       <Layout className="layout">
-        <Sider isCollapse={isCollapse}></Sider>
+        <Sider isCollapse={isCollapse} setCollapse={setCollapse}></Sider>
         <Layout>
           <Header
             className="header"
