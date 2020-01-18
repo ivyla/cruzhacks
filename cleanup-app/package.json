@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "clean-this-space",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -33,5 +33,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "http://artpark.github.io/my-app"
+  "homepage": "./"
 }
