@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/cruzhacks/static/css/main.d34ac0ff.chunk.css",
+    "main.js": "/cruzhacks/static/js/main.9fe4d579.chunk.js",
+    "main.js.map": "/cruzhacks/static/js/main.9fe4d579.chunk.js.map",
+    "runtime-main.js": "/cruzhacks/static/js/runtime-main.71694fbc.js",
+    "runtime-main.js.map": "/cruzhacks/static/js/runtime-main.71694fbc.js.map",
+    "static/css/2.7f669fb7.chunk.css": "/cruzhacks/static/css/2.7f669fb7.chunk.css",
+    "static/js/2.af7c8924.chunk.js": "/cruzhacks/static/js/2.af7c8924.chunk.js",
+    "static/js/2.af7c8924.chunk.js.map": "/cruzhacks/static/js/2.af7c8924.chunk.js.map",
+    "index.html": "/cruzhacks/index.html",
+    "precache-manifest.da0a9aa2541c5e273a2e6fcf9e0ed451.js": "/cruzhacks/precache-manifest.da0a9aa2541c5e273a2e6fcf9e0ed451.js",
+    "service-worker.js": "/cruzhacks/service-worker.js",
+    "static/css/2.7f669fb7.chunk.css.map": "/cruzhacks/static/css/2.7f669fb7.chunk.css.map",
+    "static/css/main.d34ac0ff.chunk.css.map": "/cruzhacks/static/css/main.d34ac0ff.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.71694fbc.js",
+    "static/css/2.7f669fb7.chunk.css",
+    "static/js/2.af7c8924.chunk.js",
+    "static/css/main.d34ac0ff.chunk.css",
+    "static/js/main.9fe4d579.chunk.js"
+  ]
+}
