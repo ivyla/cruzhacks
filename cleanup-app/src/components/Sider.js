@@ -1,5 +1,6 @@
 import React from 'react'
 import { Layout, Menu, Icon } from 'antd'
+import { Link } from 'react-router-dom'
 
 const Sider = props => {
   return (
@@ -14,13 +15,20 @@ const Sider = props => {
         <img src="https://img.icons8.com/cotton/128/000000/earth-care--v1.png"></img>
       </div>
       <Menu>
+        <Menu.Item key="0">
+          <Link to="/">
+            <h1>HOME</h1>
+          </Link>
+        </Menu.Item>
         <Menu.Item key="1">
-          <Icon type="user" />
-          <span>ABOUT</span>
+          <Link to="/about">
+            <h1>ABOUT</h1>
+          </Link>
         </Menu.Item>
         <Menu.Item key="2">
-          <Icon type="user" />
-          <span>CLEAN UP</span>
+          <Link to="/map">
+            <h1>MAP</h1>
+          </Link>
         </Menu.Item>
       </Menu>
     </Layout.Sider>
