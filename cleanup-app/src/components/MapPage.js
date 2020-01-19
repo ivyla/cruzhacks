@@ -13,6 +13,7 @@ const MapPage = props => {
   const [goal, setGoal] = useState(1.0)
   const [locUrl, setUrl] = useState('')
   const [pos, setPos] = useState(null)
+  const [timeStamp, setTimeStamp] = useState(null)
 
   const handleClick = markerProps => {
     setModalVisible(!isModalVisible)
@@ -28,20 +29,29 @@ const MapPage = props => {
     setPos(markerProps.position)
     setProgress(markerProps.progress)
     setGoal(markerProps.goal)
-    setPercent((markerProps.progress / markerProps.goal) * 100)
+    setPercent(((markerProps.progress / markerProps.goal) * 100).toFixed(1))
+    setTimeStamp(markerProps.timeStamp)
     props.setCollapse(true)
   }
   const handleOk = () => {
     console.log(props)
     setModalVisible(!isModalVisible)
     const token = jwt.sign(
-      { title: modalTitle, description: modalDescription, pos: pos },
+      {
+        title: modalTitle,
+        description: modalDescription,
+        pos: pos,
+        percent: percent,
+        progress: progress,
+        goal: goal,
+        locUrl: locUrl,
+        timeStamp: timeStamp,
+      },
       'secwet'
     )
     props.history.push({
       pathname: `/details`,
       search: `${token}`,
-      state: {},
     })
   }
 
@@ -97,7 +107,7 @@ const MapPage = props => {
               <Statistic value={`$${progress}`} suffix={`/ $${goal}`} />
             </div>
             <Progress
-              percent={percent.toFixed(2)}
+              percent={percent}
               status="active"
               strokeColor={{
                 '0%': '#ebd494',
@@ -136,6 +146,7 @@ const MapPage = props => {
           description={`Poplar Beach is the premier location for surfing in the Half Moon Bay area and is loved by many for its beautiful coastal trail and expansive shores. The unfortunate situation: the beach has seen better days. As a popular spot for weekend bonfire parties, surfing, and hiking, this lovely beach gets a lot of traffic; however, the community's reluctance to "pack out" their trash means that there is now a collection of glass bottles and solo cups littering the shore. Our goal for the day is to collect 25 pounds of trash!`}
           progress={80.0}
           goal={120.0}
+          timeStamp={new Date('2020-03-25').getTime()}
           onClick={handleClick}
         />
         <Marker
@@ -144,6 +155,7 @@ const MapPage = props => {
           description={`The Capitola Beach is a lovely place to spend an afternoon, but without trash cans, it is difficult to act with good "leave no trace" ethics. Help us source and install 5 trash and recycling bins along the beach's range.`}
           progress={35.0}
           goal={75.0}
+          timeStamp={Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30}
           onClick={handleClick}
         />
         <Marker
@@ -152,6 +164,7 @@ const MapPage = props => {
           description={`Stretching out for a half-mile, this sandy beach sits between the Santa Cruz Beach Boardwalk and the Santa Cruz Harbor. Although considered a smaller beach by some, Seabright is a well-known spot for sun worshippers, dog lovers, and those wanting a local favorite spot to catch the sunrise or sunset. Enter Seabright State Beach at the main entrance near the Santa Cruz Museum of Natural History on East Cliff Drive or near the harbor off Atlantic Avenue.`}
           progress={25.0}
           goal={35.0}
+          timeStamp={Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30}
           onClick={handleClick}
         />
         <Marker
@@ -160,6 +173,7 @@ const MapPage = props => {
           description={`In Carmel-by-the-Sea itself, right at the foot of Ocean Avenue, is Carmel Beach (not to be confused with Carmel River Beach, just a mile south). It's locally renowned for good surf and excellent dog-walking conditions, as well as breathtaking sunsets. An annual sandcastle contest is testimony to the quality of the silvery sands, which are punctuated by outcroppings of rock. We will be packing out our trash, so we ready to hike!`}
           progress={30.0}
           goal={30.0}
+          timeStamp={Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30}
           onClick={handleClick}
         />
         <Marker
@@ -168,6 +182,7 @@ const MapPage = props => {
           description={`This beach, south of Davenport, is easy to get to, but you have to know where to look. We will meet at Whale City Bakery and hike in together. During high tide, the water can be a few feet high so bring boots and be ready to get wet.`}
           progress={80.0}
           goal={100.0}
+          timeStamp={Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30}
           onClick={handleClick}
         />
       </Map>
