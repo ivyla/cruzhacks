@@ -1,3 +1,21 @@
+@media screen and (min-width: 601px) {
+  #title-blurb {
+    font-size: 40px;
+  }
+  #description {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #title-blurb {
+    font-size: 30px;
+  }
+  #description {
+    font-size: 20px;
+  }
+}
+
 .wrapper {
   height: 100%;
   width: 100%;
@@ -22,13 +40,11 @@
 }
 #title-blurb {
   //   position: absolute;
-  font-size: 250%;
   color: white;
   font-weight: bold;
 }
 
 #description {
-  font-size: 200%;
   color: white;
 }
 
