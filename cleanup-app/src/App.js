@@ -15,6 +15,7 @@ import MapPage from './components/MapPage'
 import OrganizerPage from './components/OrganizerPage'
 import LogInPage from './components/LogInPage'
 import DetailsPage from './components/DetailsPage'
+import AboutPage from './components/AboutPage'
 
 import markersJSON from './components/database.json'
 
@@ -46,6 +47,9 @@ const App = () => {
               </Route>
               <Route path="/login">
                 <LogInPage />
+              </Route>
+              <Route path="/about">
+                <AboutPage />
               </Route>
               <Route
                 path="/details"
