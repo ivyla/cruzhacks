@@ -2,15 +2,16 @@ import React, { useState } from 'react'
 import GoogleMapReact from 'google-map-react'
 import { Modal } from 'antd'
 
-const MapPage = () => {
+const MapPage = props => {
   const [isModalVisible, setModalVisible] = useState(false)
   const [modalTitle, setModalTitle] = useState('')
   const [modalDescription, setModalDescription] = useState('')
 
-  const handleClick = props => () => {
+  const handleClick = markerProps => () => {
     setModalVisible(!isModalVisible)
-    setModalTitle(props.title)
-    setModalDescription(props.description)
+    setModalTitle(markerProps.title)
+    setModalDescription(markerProps.description)
+    props.setCollapse(true)
   }
 
   const handleOk = () => {
@@ -26,10 +27,10 @@ const MapPage = () => {
     transform: 'translate(-50%, -100%)',
   }
 
-  const Marker = props => (
+  const Marker = markerProps => (
     <img
       style={greatPlaceStyle}
-      onClick={handleClick(props)}
+      onClick={handleClick(markerProps)}
       src="https://img.icons8.com/color/20/000000/marker.png"
     />
   )

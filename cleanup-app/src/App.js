@@ -12,15 +12,15 @@ import AboutPage from './components/AboutPage'
 
 const { Content, Footer } = Layout
 
-Radar.trackOnce((status, location, user, events) => {
-  if (status === Radar.STATUS.SUCCESS) {
-    for (const geofence in user.geofences) {
-      if (geofence.tag === 'stadium') {
-        // do something
-      }
-    }
-  }
-})
+// Radar.trackOnce((status, location, user, events) => {
+//   if (status === Radar.STATUS.SUCCESS) {
+//     for (const geofence in user.geofences) {
+//       if (geofence.tag === 'stadium') {
+//         // do something
+//       }
+//     }
+//   }
+// })
 
 const App = () => {
   const [isCollapse, setCollapse] = useState(true)
@@ -40,7 +40,7 @@ const App = () => {
                 <HomePage />
               </Route>
               <Route path="/map">
-                <MapPage />
+                <MapPage setCollapse={setCollapse} />
               </Route>
               <Route path="/about">
                 <AboutPage />
