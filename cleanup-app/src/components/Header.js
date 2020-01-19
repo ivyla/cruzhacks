@@ -12,7 +12,7 @@ const Header = props => {
         icon={props.isCollapse ? 'menu-unfold' : 'menu-fold'}
       ></Button>
       <div className="logo">
-        <h1>CLEAN THIS SPACE</h1>
+        <h1 id="site-title"> Clean This Space </h1>
         <img src={Logo}></img>
       </div>
     </Layout.Header>
