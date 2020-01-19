@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
 import { Layout } from 'antd'
 import Radar from 'radar-sdk-js'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  withRouter,
+} from 'react-router-dom'
 
 import Header from './components/Header'
 import Sider from './components/Sider'
@@ -9,6 +14,7 @@ import Sider from './components/Sider'
 import HomePage from './components/HomePage'
 import MapPage from './components/MapPage'
 import AboutPage from './components/AboutPage'
+import DetailsPage from './components/DetailsPage'
 
 const { Content, Footer } = Layout
 
@@ -45,6 +51,10 @@ const App = () => {
               <Route path="/about">
                 <AboutPage />
               </Route>
+              <Route
+                path="/details"
+                render={({ match }) => <DetailsPage match={match} />}
+              ></Route>
             </Switch>
           </Content>
           <Footer className="footer"></Footer>

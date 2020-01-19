@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import GoogleMapReact from 'google-map-react'
 import { Modal } from 'antd'
+import { withRouter } from 'react-router-dom'
+import jwt from 'jsonwebtoken'
 
 const MapPage = props => {
   const [isModalVisible, setModalVisible] = useState(false)
@@ -16,6 +18,15 @@ const MapPage = props => {
 
   const handleOk = () => {
     setModalVisible(!isModalVisible)
+    const token = jwt.sign(
+      { title: modalTitle, description: modalDescription },
+      'secwet'
+    )
+    props.history.push({
+      pathname: `/details`,
+      search: `${token}`,
+      state: {},
+    })
   }
 
   const handleCancel = () => {
@@ -56,6 +67,7 @@ const MapPage = props => {
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
+        okText={'More'}
       >
         <p>{modalDescription}</p>
       </Modal>
@@ -113,4 +125,4 @@ const MapPage = props => {
   )
 }
 
-export default MapPage
+export default withRouter(MapPage)
