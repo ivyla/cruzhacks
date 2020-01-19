@@ -15,7 +15,7 @@ const HomePage = () => {
             We're here to connect environmentally conscious donors and eager
             volunteers, to clean public places in our communities.{' '}
           </h2>
-          <Button variant="success">Go to map</Button>
+          <Button class="haw-yee" variant="success">Go to map</Button>
         </div>
       </div>
     </div>
