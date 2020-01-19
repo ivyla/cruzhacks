@@ -1,5 +1,7 @@
 import React from 'react'
 import Logo from '../assets/images/cleanup.png'
+import {Button} from 'antd'
+import { Link } from 'react-router-dom'
 
 const HomePage = () => {
   return (
@@ -16,6 +18,7 @@ const HomePage = () => {
             volunteers, to clean public places in our communities.{' '}
           </h2>
         </div>
+        <Button class="haw-yee" variant="success">Go to map<Link to="/map"></Link></Button>
       </div>
     </div>
   )
