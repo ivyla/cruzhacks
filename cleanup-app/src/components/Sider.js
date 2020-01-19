@@ -2,6 +2,8 @@ import React from 'react'
 import { Layout, Menu, Icon } from 'antd'
 import { Link } from 'react-router-dom'
 
+import Logo from '../assets/images/logo200.png'
+
 const Sider = props => {
   return (
     <Layout.Sider
@@ -12,7 +14,7 @@ const Sider = props => {
       collapsed={props.isCollapse}
     >
       <div className="sider-logo">
-        <img src="https://img.icons8.com/cotton/128/000000/earth-care--v1.png"></img>
+        <img src={Logo}></img>
       </div>
       <Menu>
         <Menu.Item key="0" onClick={() => props.setCollapse(!props.isCollapse)}>

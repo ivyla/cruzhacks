@@ -1,5 +1,7 @@
 import React from 'react'
-import { Button, Layout, Menu } from 'antd'
+import { Button, Layout } from 'antd'
+
+import Logo from '../assets/images/logo200.png'
 
 const Header = props => {
   return (
@@ -11,7 +13,7 @@ const Header = props => {
       ></Button>
       <div className="logo">
         <h1>CLEAN THIS SPACE</h1>
-        <img src="https://img.icons8.com/cotton/64/000000/earth-care--v1.png"></img>
+        <img src={Logo}></img>
       </div>
     </Layout.Header>
   )
