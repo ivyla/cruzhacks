@@ -13,12 +13,14 @@ const MapPage = props => {
   const [percent, setPercent] = useState(0.0)
   const [progress, setProgress] = useState(0.0)
   const [goal, setGoal] = useState(1.0)
+  const [locurl, setUrl] = useState('')
   const [pos, setPos] = useState(null)
 
   const handleClick = markerProps => {
     setModalVisible(!isModalVisible)
     setModalTitle(markerProps.title)
     setModalDescription(markerProps.description)
+    setUrl('https://maps.googleapis.com/maps/api/streetview?size=400x400&location='+ markerProps.position.lat+',' + markerProps.position.lng +'&fov=80&heading=70&pitch=0&key=AIzaSyDVbQIZYWFU5zfuxRW1Ogt-9GAnmuznuwc')
     setPos(markerProps.position)
     setProgress(markerProps.progress)
     setGoal(markerProps.goal)
@@ -108,6 +110,9 @@ const MapPage = props => {
             <Progress percent={percent.toFixed(2)} />
           </div>
         )}
+        <center>
+          <img src = {locurl}></img>
+        </center>
       </Modal>
       <h1>MAP PAGE</h1>
 
