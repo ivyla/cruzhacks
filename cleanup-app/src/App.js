@@ -14,6 +14,7 @@ import Sider from './components/Sider'
 import HomePage from './components/HomePage'
 import MapPage from './components/MapPage'
 import AboutPage from './components/AboutPage'
+import LogInPage from './components/LogInPage'
 import DetailsPage from './components/DetailsPage'
 
 const { Content, Footer } = Layout
@@ -50,6 +51,9 @@ const App = () => {
               </Route>
               <Route path="/about">
                 <AboutPage />
+              </Route>
+              <Route path = '/login'>
+                <LogInPage />
               </Route>
               <Route
                 path="/details"

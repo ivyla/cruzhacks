@@ -4,6 +4,7 @@ import { Modal } from 'antd'
 import { withRouter } from 'react-router-dom'
 import jwt from 'jsonwebtoken'
 
+
 const MapPage = props => {
   const [isModalVisible, setModalVisible] = useState(false)
   const [modalTitle, setModalTitle] = useState('')
@@ -15,7 +16,6 @@ const MapPage = props => {
     setModalDescription(markerProps.description)
     props.setCollapse(true)
   }
-
   const handleOk = () => {
     setModalVisible(!isModalVisible)
     const token = jwt.sign(
@@ -45,6 +45,7 @@ const MapPage = props => {
       src="https://img.icons8.com/color/20/000000/marker.png"
     />
   )
+
 
   let defaultProps = {
     center: {
@@ -79,6 +80,7 @@ const MapPage = props => {
           defaultZoom={defaultProps.zoom}
           yesIWantToUseGoogleMapApiInternals
         >
+
           <Marker
             lat={37.453639}
             lng={-122.445115}
