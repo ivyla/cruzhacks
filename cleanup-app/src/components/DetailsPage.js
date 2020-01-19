@@ -8,7 +8,6 @@ const DetailsPage = props => {
   const decoded = jwt.verify(token, 'secwet')
 
   const { title, description } = decoded
-  console.log(decoded)
   // let { token } = props.match.jwt
   // const decoded = jwt.verify(token, 'secwet')
   // console.log(decoded)
