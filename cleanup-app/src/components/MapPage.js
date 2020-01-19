@@ -5,22 +5,26 @@ import { withRouter } from 'react-router-dom'
 import jwt from 'jsonwebtoken'
 
 const MapPage = props => {
-  console.log('hi')
-
   const [isModalVisible, setModalVisible] = useState(false)
   const [modalTitle, setModalTitle] = useState('')
   const [modalDescription, setModalDescription] = useState('')
   const [percent, setPercent] = useState(0.0)
   const [progress, setProgress] = useState(0.0)
   const [goal, setGoal] = useState(1.0)
-  const [locurl, setUrl] = useState('')
+  const [locUrl, setUrl] = useState('')
   const [pos, setPos] = useState(null)
 
   const handleClick = markerProps => {
     setModalVisible(!isModalVisible)
     setModalTitle(markerProps.title)
     setModalDescription(markerProps.description)
-    setUrl('https://maps.googleapis.com/maps/api/streetview?size=400x400&location='+ markerProps.position.lat+',' + markerProps.position.lng +'&fov=80&heading=70&pitch=0&key=AIzaSyDVbQIZYWFU5zfuxRW1Ogt-9GAnmuznuwc')
+    setUrl(
+      'https://maps.googleapis.com/maps/api/streetview?size=400x400&location=' +
+        markerProps.position.lat +
+        ',' +
+        markerProps.position.lng +
+        '&fov=80&heading=70&pitch=0&key=AIzaSyDVbQIZYWFU5zfuxRW1Ogt-9GAnmuznuwc'
+    )
     setPos(markerProps.position)
     setProgress(markerProps.progress)
     setGoal(markerProps.goal)
@@ -68,7 +72,15 @@ const MapPage = props => {
         onOk={handleOk}
         onCancel={handleCancel}
         okText={'More'}
+        className="modal"
       >
+        <center>
+          <img
+            src={locUrl}
+            className="modal-img"
+            style={{ width: '85%' }}
+          ></img>
+        </center>
         <p>{modalDescription}</p>
         {percent < 100 ? (
           <div>
@@ -110,65 +122,50 @@ const MapPage = props => {
             <Progress percent={percent.toFixed(2)} />
           </div>
         )}
-        <center>
-          <img src = {locurl}></img>
-        </center>
       </Modal>
-      <h1>MAP PAGE</h1>
-
       <Map
         google={props.google}
-        style={{ width: '100%', height: '84%' }}
+        className="map"
         defaultCenter={defaultProps.center}
         zoom={defaultProps.zoom}
         initialCenter={defaultProps.center}
       >
         <Marker
           position={{ lat: 37.453639, lng: -122.445115 }}
-          title={'Beach 1'}
-          description={
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. '
-          }
+          title={'Poplar Beach'}
+          description={`Poplar Beach is the premier location for surfing in the Half Moon Bay area and is loved by many for its beautiful coastal trail and expansive shores. The unfortunate situation: the beach has seen better days. As a popular spot for weekend bonfire parties, surfing, and hiking, this lovely beach gets a lot of traffic; however, the community's reluctance to "pack out" their trash means that there is now a collection of glass bottles and solo cups littering the shore. Our goal for the day is to collect 25 pounds of trash!`}
           progress={80.0}
           goal={120.0}
           onClick={handleClick}
         />
         <Marker
           position={{ lat: 36.971454, lng: -121.952722 }}
-          title={'Beach 2'}
-          description={
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. '
-          }
+          title={'Capitola Beach'}
+          description={`The Capitola Beach is a lovely place to spend an afternoon, but without trash cans, it is difficult to act with good "leave no trace" ethics. Help us source and install 5 trash and recycling bins along the beach's range.`}
           progress={35.0}
           goal={75.0}
           onClick={handleClick}
         />
         <Marker
           position={{ lat: 36.963261, lng: -122.009431 }}
-          title={'Beach 3'}
-          description={
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. '
-          }
+          title={'Seabright Beach'}
+          description={`Stretching out for a half-mile, this sandy beach sits between the Santa Cruz Beach Boardwalk and the Santa Cruz Harbor. Although considered a smaller beach by some, Seabright is a well-known spot for sun worshippers, dog lovers, and those wanting a local favorite spot to catch the sunrise or sunset. Enter Seabright State Beach at the main entrance near the Santa Cruz Museum of Natural History on East Cliff Drive or near the harbor off Atlantic Avenue.`}
           progress={25.0}
           goal={35.0}
           onClick={handleClick}
         />
         <Marker
           position={{ lat: 36.549343, lng: -121.929567 }}
-          title={'Beach 4'}
-          description={
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. '
-          }
+          title={'Carmel Beach'}
+          description={`In Carmel-by-the-Sea itself, right at the foot of Ocean Avenue, is Carmel Beach (not to be confused with Carmel River Beach, just a mile south). It's locally renowned for good surf and excellent dog-walking conditions, as well as breathtaking sunsets. An annual sandcastle contest is testimony to the quality of the silvery sands, which are punctuated by outcroppings of rock. We will be packing out our trash, so we ready to hike!`}
           progress={30.0}
           goal={30.0}
           onClick={handleClick}
         />
         <Marker
           position={{ lat: 37.004131, lng: -122.185773 }}
-          title={'Beach 5'}
-          description={
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. '
-          }
+          title={'Shark Fin Cove'}
+          description={`This beach, south of Davenport, is easy to get to, but you have to know where to look. We will meet at Whale City Bakery and hike in together. During high tide, the water can be a few feet high so bring boots and be ready to get wet.`}
           progress={80.0}
           goal={100.0}
           onClick={handleClick}

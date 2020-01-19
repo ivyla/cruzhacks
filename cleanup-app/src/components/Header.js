@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Layout } from 'antd'
 
-import Logo from '../assets/images/logo200.png'
+import Logo from '../assets/images/logo143x83_tight.png'
 
 const Header = props => {
   return (

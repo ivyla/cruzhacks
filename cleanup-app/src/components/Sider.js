@@ -2,7 +2,7 @@ import React from 'react'
 import { Layout, Menu, Icon } from 'antd'
 import { Link } from 'react-router-dom'
 
-import Logo from '../assets/images/logo200.png'
+import Logo from '../assets/images/logo143x83_tight.png'
 
 const Sider = props => {
   return (

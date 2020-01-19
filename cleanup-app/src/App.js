@@ -52,7 +52,7 @@ const App = () => {
               <Route path="/about">
                 <AboutPage />
               </Route>
-              <Route path = '/login'>
+              <Route path="/login">
                 <LogInPage />
               </Route>
               <Route
@@ -61,7 +61,6 @@ const App = () => {
               ></Route>
             </Switch>
           </Content>
-          <Footer className="footer"></Footer>
         </Layout>
       </Layout>
     </Router>

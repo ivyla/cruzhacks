@@ -6,6 +6,5 @@
 
 .content {
   background: $yellow1;
-  height: 100vh;
-  padding-bottom: $footer-height;
+  height: calc(100vh - 128px);
 }
