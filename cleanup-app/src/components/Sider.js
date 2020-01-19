@@ -1,5 +1,8 @@
 import React from 'react'
 import { Layout, Menu, Icon } from 'antd'
+import { Link } from 'react-router-dom'
+
+import Logo from '../assets/images/logo143x83_tight.png'
 
 const Sider = props => {
   return (
@@ -11,16 +14,23 @@ const Sider = props => {
       collapsed={props.isCollapse}
     >
       <div className="sider-logo">
-        <img src="https://img.icons8.com/cotton/128/000000/earth-care--v1.png"></img>
+        <img src={Logo}></img>
       </div>
       <Menu>
-        <Menu.Item key="1">
-          <Icon type="user" />
-          <span>ABOUT</span>
+        <Menu.Item key="0" onClick={() => props.setCollapse(!props.isCollapse)}>
+          <Link to="/">
+            <h1>HOME</h1>
+          </Link>
         </Menu.Item>
-        <Menu.Item key="2">
-          <Icon type="user" />
-          <span>CLEAN UP</span>
+        <Menu.Item key="1" onClick={() => props.setCollapse(!props.isCollapse)}>
+          <Link to="/about">
+            <h1>ABOUT</h1>
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="2" onClick={() => props.setCollapse(!props.isCollapse)}>
+          <Link to="/map">
+            <h1>MAP</h1>
+          </Link>
         </Menu.Item>
       </Menu>
     </Layout.Sider>
