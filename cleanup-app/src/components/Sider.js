@@ -35,7 +35,7 @@ const Sider = props => {
         </Menu.Item>
         <Menu.Item key="2" onClick={() => props.setCollapse(!props.isCollapse)}>
           <Link to="/organizer">
-            <h1>ORGANIZER</h1>
+            <Icon type="snippets" /> Organizer{' '}
           </Link>
         </Menu.Item>
         <Menu.Item key="3" onClick={() => props.setCollapse(!props.isCollapse)}>

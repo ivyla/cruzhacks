@@ -20,7 +20,7 @@ const OrganizerPage = props => {
     props.markers.markers.push({
       latitude: pos.lat,
       longitude: pos.lng,
-      title: 'A Beach',
+      title: 'A Place',
       description: 'This needs cleaning!',
       progress: 0.0,
       goal: 40.0,
