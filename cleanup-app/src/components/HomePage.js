@@ -1,6 +1,7 @@
 import React from 'react'
 import Logo from '../assets/images/cleanup.png'
 import {Button} from 'antd'
+import { Link } from 'react-router-dom'
 
 const HomePage = () => {
   return (
