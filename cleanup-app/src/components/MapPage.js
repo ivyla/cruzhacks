@@ -4,12 +4,8 @@ import { Modal, Progress, Statistic } from 'antd'
 import { withRouter } from 'react-router-dom'
 import jwt from 'jsonwebtoken'
 
-import markers from '../components/database.json'
-
 const MapPage = props => {
-  {
-  }
-
+  console.log('props', props)
   const [isModalVisible, setModalVisible] = useState(false)
   const [modalTitle, setModalTitle] = useState('')
   const [modalDescription, setModalDescription] = useState('')
@@ -145,8 +141,8 @@ const MapPage = props => {
         zoom={defaultProps.zoom}
         initialCenter={defaultProps.center}
       >
-        {Object.keys(markers.markers).map(index => {
-          const obj = markers.markers[index]
+        {Object.keys(props.markers.markers).map(index => {
+          const obj = props.markers.markers[index]
           return (
             <Marker
               position={{ lat: obj.latitude, lng: obj.longitude }}

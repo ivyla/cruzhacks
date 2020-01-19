@@ -17,10 +17,13 @@ import LogInPage from './components/LogInPage'
 import DetailsPage from './components/DetailsPage'
 import AboutPage from './components/AboutPage'
 
-const { Content, Footer } = Layout
+import markersJSON from './components/database.json'
+
+const { Content } = Layout
 
 const App = () => {
   const [isCollapse, setCollapse] = useState(true)
+  const [markers, setMarkers] = useState(markersJSON)
   return (
     <Router>
       <Layout className="layout">
@@ -37,10 +40,10 @@ const App = () => {
                 <HomePage />
               </Route>
               <Route path="/map">
-                <MapPage setCollapse={setCollapse} />
+                <MapPage setCollapse={setCollapse} markers={markers} />
               </Route>
               <Route path="/organizer">
-                <OrganizerPage />
+                <OrganizerPage markers={markers} setMarkers={setMarkers} />
               </Route>
               <Route path="/login">
                 <LogInPage />
