@@ -4,7 +4,12 @@ import { Modal, Progress, Statistic } from 'antd'
 import { withRouter } from 'react-router-dom'
 import jwt from 'jsonwebtoken'
 
+import markers from '../components/database.json'
+
 const MapPage = props => {
+  {
+  }
+
   const [isModalVisible, setModalVisible] = useState(false)
   const [modalTitle, setModalTitle] = useState('')
   const [modalDescription, setModalDescription] = useState('')
@@ -140,7 +145,21 @@ const MapPage = props => {
         zoom={defaultProps.zoom}
         initialCenter={defaultProps.center}
       >
-        <Marker
+        {Object.keys(markers.markers).map(index => {
+          const obj = markers.markers[index]
+          return (
+            <Marker
+              position={{ lat: obj.latitude, lng: obj.longitude }}
+              title={obj.title}
+              description={obj.description}
+              progress={obj.progress}
+              goal={obj.goal}
+              timeStamp={new Date('2020-03-25').getTime()}
+              onClick={handleClick}
+            />
+          )
+        })}
+        {/* <Marker
           position={{ lat: 37.453639, lng: -122.445115 }}
           title={'Poplar Beach'}
           description={`Poplar Beach is the premier location for surfing in the Half Moon Bay area and is loved by many for its beautiful coastal trail and expansive shores. The unfortunate situation: the beach has seen better days. As a popular spot for weekend bonfire parties, surfing, and hiking, this lovely beach gets a lot of traffic; however, the community's reluctance to "pack out" their trash means that there is now a collection of glass bottles and solo cups littering the shore. Our goal for the day is to collect 25 pounds of trash!`}
@@ -184,7 +203,7 @@ const MapPage = props => {
           goal={100.0}
           timeStamp={new Date('2020-03-25').getTime()}
           onClick={handleClick}
-        />
+        /> */}
       </Map>
     </div>
   )

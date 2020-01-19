@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Layout } from 'antd'
-import Radar from 'radar-sdk-js'
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,21 +12,11 @@ import Sider from './components/Sider'
 
 import HomePage from './components/HomePage'
 import MapPage from './components/MapPage'
-import AboutPage from './components/AboutPage'
+import OrganizerPage from './components/OrganizerPage'
 import LogInPage from './components/LogInPage'
 import DetailsPage from './components/DetailsPage'
 
 const { Content, Footer } = Layout
-
-// Radar.trackOnce((status, location, user, events) => {
-//   if (status === Radar.STATUS.SUCCESS) {
-//     for (const geofence in user.geofences) {
-//       if (geofence.tag === 'stadium') {
-//         // do something
-//       }
-//     }
-//   }
-// })
 
 const App = () => {
   const [isCollapse, setCollapse] = useState(true)
@@ -49,8 +38,8 @@ const App = () => {
               <Route path="/map">
                 <MapPage setCollapse={setCollapse} />
               </Route>
-              <Route path="/about">
-                <AboutPage />
+              <Route path="/organizer">
+                <OrganizerPage />
               </Route>
               <Route path="/login">
                 <LogInPage />
