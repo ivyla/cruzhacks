@@ -1,5 +1,6 @@
 import React from 'react'
 import Logo from '../assets/images/cleanup.png'
+import {Button} from 'antd'
 
 const HomePage = () => {
   return (
@@ -15,8 +16,8 @@ const HomePage = () => {
             We're here to connect environmentally conscious donors and eager
             volunteers, to clean public places in our communities.{' '}
           </h2>
-          <Button class="haw-yee" variant="success">Go to map</Button>
         </div>
+        <Button class="haw-yee" variant="success">Go to map<Link to="/map"></Link></Button>
       </div>
     </div>
   )
