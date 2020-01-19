@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react'
-import { Modal } from 'antd'
+import { Modal, Progress, Statistic } from 'antd'
 import { withRouter } from 'react-router-dom'
 import jwt from 'jsonwebtoken'
 
@@ -10,6 +10,9 @@ const MapPage = props => {
   const [isModalVisible, setModalVisible] = useState(false)
   const [modalTitle, setModalTitle] = useState('')
   const [modalDescription, setModalDescription] = useState('')
+  const [percent, setPercent] = useState(0.0)
+  const [progress, setProgress] = useState(0.0)
+  const [goal, setGoal] = useState(1.0)
   const [pos, setPos] = useState(null)
 
   const handleClick = markerProps => {
@@ -17,6 +20,9 @@ const MapPage = props => {
     setModalTitle(markerProps.title)
     setModalDescription(markerProps.description)
     setPos(markerProps.position)
+    setProgress(markerProps.progress)
+    setGoal(markerProps.goal)
+    setPercent((markerProps.progress / markerProps.goal) * 100)
     props.setCollapse(true)
   }
   const handleOk = () => {
@@ -62,12 +68,52 @@ const MapPage = props => {
         okText={'More'}
       >
         <p>{modalDescription}</p>
+        {percent < 100 ? (
+          <div>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignContent: 'center',
+              }}
+            >
+              <h3 style={{ marginBottom: '0px', textAlign: 'center' }}>
+                Percentage Funded:
+              </h3>
+              <Statistic value={`$${progress}`} suffix={`/ $${goal}`} />
+            </div>
+            <Progress
+              percent={percent.toFixed(2)}
+              status="active"
+              strokeColor={{
+                '0%': '#ebd494',
+                '100%': '#a1cdf4',
+              }}
+            />
+          </div>
+        ) : (
+          <div>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignContent: 'center',
+              }}
+            >
+              <h2 style={{ marginBottom: '0px', textAlign: 'center' }}>
+                Funded!
+              </h2>
+              <Statistic value={`$${progress}`} suffix={`/ $${goal}`} />
+            </div>
+            <Progress percent={percent.toFixed(2)} />
+          </div>
+        )}
       </Modal>
       <h1>MAP PAGE</h1>
 
       <Map
         google={props.google}
-        style={{ width: '100%', height: '100%' }}
+        style={{ width: '100%', height: '84%' }}
         defaultCenter={defaultProps.center}
         zoom={defaultProps.zoom}
         initialCenter={defaultProps.center}
@@ -78,6 +124,8 @@ const MapPage = props => {
           description={
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. '
           }
+          progress={80.0}
+          goal={120.0}
           onClick={handleClick}
         />
         <Marker
@@ -86,6 +134,8 @@ const MapPage = props => {
           description={
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. '
           }
+          progress={35.0}
+          goal={75.0}
           onClick={handleClick}
         />
         <Marker
@@ -94,6 +144,8 @@ const MapPage = props => {
           description={
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. '
           }
+          progress={25.0}
+          goal={35.0}
           onClick={handleClick}
         />
         <Marker
@@ -102,6 +154,8 @@ const MapPage = props => {
           description={
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. '
           }
+          progress={30.0}
+          goal={30.0}
           onClick={handleClick}
         />
         <Marker
@@ -110,6 +164,8 @@ const MapPage = props => {
           description={
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. '
           }
+          progress={80.0}
+          goal={100.0}
           onClick={handleClick}
         />
       </Map>
