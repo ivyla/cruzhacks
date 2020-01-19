@@ -155,7 +155,7 @@ const MapPage = props => {
           description={`The Capitola Beach is a lovely place to spend an afternoon, but without trash cans, it is difficult to act with good "leave no trace" ethics. Help us source and install 5 trash and recycling bins along the beach's range.`}
           progress={35.0}
           goal={75.0}
-          timeStamp={Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30}
+          timeStamp={new Date('2020-03-25').getTime()}
           onClick={handleClick}
         />
         <Marker
@@ -164,7 +164,7 @@ const MapPage = props => {
           description={`Stretching out for a half-mile, this sandy beach sits between the Santa Cruz Beach Boardwalk and the Santa Cruz Harbor. Although considered a smaller beach by some, Seabright is a well-known spot for sun worshippers, dog lovers, and those wanting a local favorite spot to catch the sunrise or sunset. Enter Seabright State Beach at the main entrance near the Santa Cruz Museum of Natural History on East Cliff Drive or near the harbor off Atlantic Avenue.`}
           progress={25.0}
           goal={35.0}
-          timeStamp={Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30}
+          timeStamp={new Date('2020-03-25').getTime()}
           onClick={handleClick}
         />
         <Marker
@@ -173,7 +173,7 @@ const MapPage = props => {
           description={`In Carmel-by-the-Sea itself, right at the foot of Ocean Avenue, is Carmel Beach (not to be confused with Carmel River Beach, just a mile south). It's locally renowned for good surf and excellent dog-walking conditions, as well as breathtaking sunsets. An annual sandcastle contest is testimony to the quality of the silvery sands, which are punctuated by outcroppings of rock. We will be packing out our trash, so we ready to hike!`}
           progress={30.0}
           goal={30.0}
-          timeStamp={Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30}
+          timeStamp={new Date('2020-03-25').getTime()}
           onClick={handleClick}
         />
         <Marker
@@ -182,7 +182,7 @@ const MapPage = props => {
           description={`This beach, south of Davenport, is easy to get to, but you have to know where to look. We will meet at Whale City Bakery and hike in together. During high tide, the water can be a few feet high so bring boots and be ready to get wet.`}
           progress={80.0}
           goal={100.0}
-          timeStamp={Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30}
+          timeStamp={new Date('2020-03-25').getTime()}
           onClick={handleClick}
         />
       </Map>
